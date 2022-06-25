@@ -32,7 +32,8 @@ gravatar = Gravatar(
 
 ##CONNECT TO DB
 db_uri = os.environ.get("DATABASE_URL")
-db_uri = db_uri.replace("postgres://", "postgressql://")
+db_uri = db_uri.replace("postgres://", "postgressql+psycopg2://")
+print(db_uri)
 app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
